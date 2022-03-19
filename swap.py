@@ -1,36 +1,22 @@
-import random
+def swapFileData():
 
-number = random.randrange(1, 50)
+    print("Swap File Text Program")
+    print("This file is the type of file")
+    print("that will switch the file contents")
 
-chanceCount=0
+    file1 = input("Enter 1st file name - ")
+    file2 = input("Enter 2nd file name - ")
 
-class color:
-    RED = '\033[91m'
-    BOLD ='\033[1m'
-    END ='\033[0m'
+    ref1 = open(file1, 'r+')
+    fileOneData = ref1.read()
 
-print("---------------------------------")
-print(color.RED + color.BOLD + "Number guessing game" + color.END)
-print("---------------------------------")
-print("Guess a number (between 1 and 50)")
-print("You have 5 chances.")
-print("---------------------------------")
+    ref2 = open(file2, 'r+')
+    fileTwoData = ref2.read()
 
-while chanceCount < 10:
-    guess = int(input("Enter your guess: "))
-    chanceCount = chanceCount + 1
+    write1 = open(file1, 'w+')
+    write1.write(fileTwoData)
 
-    if guess < number:
-        print("Too low! Guess a number higher than ", guess)
-        print("---------------------------------")
-        
-    if guess > number:
-        print("Too high! Guess a number lower than ", guess)
-        print("---------------------------------")
+    write2 = open(file2, 'w+')
+    write2.write(fileOneData)
 
-    if guess == number:
-        print("You win!!")
-        break
-
-    if not chanceCount < 10:
-        print("You lose! The number is ", number)
+swapFileData()
